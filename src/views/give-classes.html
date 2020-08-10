@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- defer diz pra carregar primeiro a pagina, depois o script -->
     <script src="/scripts/addField.js" defer></script>
+    <script src="/scripts/removeField.js" defer></script>
 </head>
 <body id="page-give-classes">
     <div id="container">
@@ -77,17 +78,9 @@
                              <!-- [] indica q pode receber mais de um valor  -->
                             <select name="weekday[]" required>
                                 <option value="">Selecione uma opção</option>
-
                                 {%for weekday in weekdays %}
                                     <option value="{{loop.index0}}">{{weekday}}</option>
                                 {%endfor%}
-                                
-                                <option value="2">Segunda-feira</option>
-                                <option value="3">Terça-feira</option>
-                                <option value="4">Quarta-feira</option>
-                                <option value="5">Quinta-feira</option>
-                                <option value="6">Sexta-feira</option>
-                                <option value="7">Sábado</option>
                             </select>
                         </div>
                         <div class="input-block">
@@ -97,6 +90,9 @@
                         <div class="input-block">
                             <label for="time_to">Até</label>
                             <input type="time" name="time_to[]" required>
+                        </div>
+                        <div class="button-block">
+                            <button type="button" id="remove-time">Excluir Horario</button>
                         </div>
                     </div>
                 </fieldset>

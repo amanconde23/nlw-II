@@ -1,7 +1,6 @@
 // procurar o botao
-document.querySelector('#add-time')
 // qdo clicar no botao, executar uma acao
-.addEventListener('click', cloneField)
+document.querySelector('#add-time').addEventListener('click', checkIfTimeIsEmpty)
 //qual acao?
 function cloneField(){
     // duplicar campos. que campos? depois q pegar esse campo, executa acao de cloneNode(clonar nodulo - html)
@@ -18,4 +17,14 @@ function cloneField(){
     })
     // colocar no documento. onde? appendChild adiciona um filho ao pai (schedule-items -> adiciona um schedule-item)
     document.querySelector('#schedule-items').appendChild(newFieldContainer)
+}
+
+function checkIfTimeIsEmpty(){
+    const fields = document.querySelector('input[type="time"]')
+    if(fields.value == ""){
+        alert ('Favor preencher um horário antes de adicionar um novo campo')
+    }else{
+        cloneField()
+    }
+
 }
